@@ -1,0 +1,30 @@
+{
+  "name": "zwifit-incline-tracker",
+  "version": "1.0.0",
+  "description": "Set the incline of your Zwifit connected treadmill according your current Zwift session",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RasPelikan/zwifit-incline-tracker.git"
+  },
+  "keywords": [
+    "zwift",
+    "zwiftit",
+    "incline"
+  ],
+  "author": "RasPelikan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RasPelikan/zwifit-incline-tracker/issues"
+  },
+  "homepage": "https://github.com/RasPelikan/zwifit-incline-tracker#readme",
+  "dependencies": {
+    "@zwfthcks/zwift-packet-monitor": "^0.3.4",
+    "internal-ip": "^3.0.1",
+    "netmask": "^1.0.6",
+    "socket.io-client": "^2.3.0"
+  }
+}
