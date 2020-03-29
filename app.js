@@ -9,6 +9,8 @@ const minDistance = 3;
 let lastDistance = 0;
 let lastAltitude = 0;
 let currentIncline = 0;
+let lastIncline = 0;
+let lastChange = 0;
 
 Array.prototype.asyncFilter = async function(f) {
 	const array = this;
@@ -46,9 +48,15 @@ async function run() {
 				const data = {
 					zwiftIncline: Math.round(200 * Math.tan(angle)) / 2
 				};
+				const now = Date.now();
 				if (data.zwiftIncline !== currentIncline) {
-					console.log(data.zwiftIncline, playerState);
-					clients.forEach(client => client.emit('message', JSON.stringify({ event: 'control', data })));
+					if ((data.zwiftIncline !== lastIncline) // change incline if the delta is into the same direction (up or down)
+							|| ((now - lastChange) > 7500)) {  // or, if it was up-down-up/down-up-down then only once in 7,5 seconds
+						                                    // to avoid stressing the incline motor
+						clients.forEach(client => client.emit('message', JSON.stringify({ event: 'control', data })));
+						lastIncline = currentIncline;
+						lastChange = now;
+					}
 					currentIncline = data.zwiftIncline;
 				}
 					
