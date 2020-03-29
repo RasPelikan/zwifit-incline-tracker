@@ -41,6 +41,12 @@ Once installed you have to start the software evertime you start your Zwift run 
 npm start
 ```
 
+On Linux and MacOS you will have to run
+
+```bash
+sudo npm start
+```
+
 *This will only succeed if you have already started Zwifit before!*
 
 ## Hints
