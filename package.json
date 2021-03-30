@@ -24,7 +24,7 @@
   "dependencies": {
     "@zwfthcks/zwift-packet-monitor": "^0.3.4",
     "internal-ip": "^3.0.1",
-    "netmask": "^1.0.6",
+    "netmask": "^2.0.1",
     "socket.io-client": "^2.3.0"
   }
 }
